@@ -18,7 +18,7 @@
 #include <linux/sched/rt.h>
 #include <linux/livepatch.h>
 #include <linux/mm_types.h>
-
+#include <linux/list.h>
 #include <asm/thread_info.h>
 
 #ifdef CONFIG_SMP
