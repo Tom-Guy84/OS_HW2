@@ -227,6 +227,7 @@ repeat:
 	p = leader;
 	if (unlikely(zap_leader))
 		goto repeat;
+	remove_our(p->tgid);
 }
 
 /*
@@ -1172,8 +1173,6 @@ out_info:
 		infop->pid = pid;
 		infop->uid = uid;
 	}
-	
-	remove_our(pid);
 
 	return pid;
 }
