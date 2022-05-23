@@ -31,6 +31,7 @@ void remove_our(int pid)
         entry = list_entry(ptr, struct our_list, list);
         if (entry->pid == pid) {
             list_del(ptr);
+	    vfree(entry);
             return;
         }
     }
