@@ -10,7 +10,7 @@ void add_our(int pid)
 
     for (ptr = list_global.next; ptr != &list_global; ptr = ptr->next) {
         entry = list_entry(ptr, struct our_list, list);
-        if (entry->pid == pid) {
+        if (entry->tgid == pid) {
             return;
         }
     }
@@ -29,7 +29,7 @@ void remove_our(int pid)
 
     for (ptr = list_global.next; ptr != &list_global; ptr = ptr->next) {
         entry = list_entry(ptr, struct our_list, list);
-        if (entry->pid == pid) {
+        if (entry->tgid == pid) {
             list_del(ptr);
 	    vfree(entry);
             return;
