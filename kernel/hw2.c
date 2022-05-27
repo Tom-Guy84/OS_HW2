@@ -9,7 +9,7 @@ asmlinkage long sys_hello(void) {
 	 return 0;
 }
 
-asmlinkage int sys_set_status(int status){
+asmlinkage long  sys_set_status(int status){
 	if(status < 0 || status > 1)
 		return -EINVAL;
 	current->fac = status;
@@ -21,7 +21,7 @@ asmlinkage int sys_get_status(void){
 }
 
 asmlinkage int sys_register_process(void){
-	add_our(current->pid);
+	add_our(current->tgid);
 	return 0;	
 }
 
